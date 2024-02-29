@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void startTheGame() {
     if (numberOfRounds != '') {
       int? tryPrasing = int.tryParse(numberOfRounds);
-      if (tryPrasing != null) {
+      if (tryPrasing != null && tryPrasing > 0) {
         mathGame.numberOfRounds = int.parse(numberOfRounds);
         Navigator.push(context,
             MaterialPageRoute(builder: (c) => GameScreen(mathGame: mathGame)));
@@ -51,6 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
                         'Level',
@@ -76,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
                         'Operation',
